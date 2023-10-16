@@ -1,130 +1,44 @@
-const typeWriterText = [
-    "Elevating your online presence!", 
-    "Improving your brand recoginition!",
-    "Maximizing your potential sales!"
-];
+/* Scroll Animations */
 
-// Clear typewriter text
-let clearTypewriterText = (i) => {
-    const typeWriterTextElement = document.querySelector("#typewriter-text");
-    let text = typeWriterText[i];
-    let textLength = text.length;
+let observerCounter = 0;
 
-    let clearTextCounter = 0;
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
 
-    let clearTypewriterInterval = window.setInterval(() => {
+            observer.unobserve(entry.target);
+        } 
+    });
+});
 
-        if (clearTextCounter >= textLength - 1) {
-            typeWriterTextElement.innerText = "";
-            clearInterval(clearTypewriterInterval);
-        } else {
-            let newText = text.slice(0, -1);
+document.addEventListener("DOMContentLoaded", () => {
+    const hiddenElements = document.querySelectorAll(".hidden");
+    hiddenElements.forEach((el) => observer.observe(el));
+});
 
-            typeWriterTextElement.innerText = newText;
 
-            text = newText;
 
-            clearTextCounter++;
+
+const testimonialSwipeLeft = document.querySelector(".testimonial-swipe-left");
+const testimonialSwipeRight = document.querySelector(".testimonial-swipe-right");
+const testimonialCards = document.querySelectorAll(".testimonial-card-container");
+
+const getCardData = () => {
+    let cardData = {};
+    testimonialCards.forEach((card) => {
+        if (card.classList.contains('center')) {
+            cardData.center = testimonialCards.indexOf(card);
+        } else if (card.classList.contains('left')) {
+            cardData.center = testimonialCards.indexOf(card);
         }
-    }, 10);
-};
+    });
+}
 
-let typewriterCount = 0;
-let typewriterOn = false;
-let typewriterOnFirstTime = true;
-let waitTime = 5500;
+const swipeCardsRight = () => {
+    let cardData = getCardData();
+}
 
-// Displays text in typewriter way
-const typewriter = () => {
-    const typeWriterTextElement = document.querySelector("#typewriter-text");
-
-    if (typewriterOnFirstTime) {
-        typewriterOnFirstTime = false;
-        typeWriterTextElement.innerText = "";
-        let currentText = typeWriterText[typewriterCount];
-
-        typewriterCount++;
-
-        let letters = currentText.split("");
-        
-        let lettersLength = letters.length;
-
-        let totalTime = lettersLength * 60;
-
-        let totalClearTime = lettersLength * 10;
-
-        let clearWaitTime = waitTime - (totalTime + totalClearTime + 1200);
-
-        let letterCount = 0;
-
-        let typewriterInterval = window.setInterval(() => {
-            if (letterCount > lettersLength - 1) {
-                window.setTimeout(() => {
-                    clearTypewriterText(typewriterCount - 1);
-                }, clearWaitTime);
-                
-                clearInterval(typewriterInterval);
-            } else {
-                if (letters[letterCount - 1] == " ") {
-                    typeWriterTextElement.innerText += " " + letters[letterCount];
-                } else {
-                    typeWriterTextElement.innerText += letters[letterCount];
-                }
-                letterCount++;
-            }
-        }, 60);
-    }
-
-    typewriterOn = true;
-    let typewriterOnInverval = window.setInterval(() => {
-        if (!typewriterOn) {
-            clearInterval(typewriterOnInverval);
-        } else {
-            let currentText = typeWriterText[typewriterCount];
-
-            let letters = currentText.split("");
-            
-            let lettersLength = letters.length;
-
-            let totalTime = lettersLength * 60;
-
-            let totalClearTime = lettersLength * 10;
-
-            let clearWaitTime = waitTime - (totalTime + totalClearTime + 1200);
-
-            let letterCount = 0;
-
-            let typewriterInterval = window.setInterval(() => {
-                if (letterCount > lettersLength - 1) {
-                    window.setTimeout(() => {
-                        let i = typewriterCount;
-                        if (i == 0) {
-                            i = 3;
-                        }
-                        clearTypewriterText(i - 1);
-                    }, clearWaitTime);
-                    typewriterCount++;
-                    if (typewriterCount == 3) {
-                        typewriterCount = 0;
-                    }
-
-
-                    
-                    clearInterval(typewriterInterval);
-                } else {
-                    if (letters[letterCount - 1] == " ") {
-                        typeWriterTextElement.innerText += " " + letters[letterCount];
-                    } else {
-                        typeWriterTextElement.innerText += letters[letterCount];
-                    }
-                    letterCount++;
-                }
-            }, 60);
-        }
-        
-    }, waitTime);
-};
-
-document.addEventListener('DOMContentLoaded', () => {
-    typewriter();
+testimonialSwipeRight.addEventListener("click", () => {
+    swipeCardsRight();
 });

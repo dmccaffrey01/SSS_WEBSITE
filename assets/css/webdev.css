@@ -1,0 +1,416 @@
+/* Import google fonts */
+@import url("https://fonts.cdnfonts.com/css/norwester");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&display=swap");
+/* Project wide */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #333333;
+  min-height: 100vh;
+  position: relative;
+  font-family: "Montserrat", sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+.box-shadow {
+  box-shadow: 5px 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+.container-row, .btn, .img-container, .container-col, .section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-col, .section {
+  flex-direction: column;
+}
+
+.section {
+  width: 100%;
+  background: #f5f5f5;
+  padding: 100px 0;
+}
+
+.section-container {
+  width: 1400px;
+}
+
+.img-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.img-100a {
+  width: 100%;
+  height: auto;
+}
+
+.dark-text {
+  color: #333333;
+  font-size: 1.4rem;
+}
+
+.white-text {
+  color: #ffffff;
+  font-size: 1.4rem;
+}
+
+.heading {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+.big-heading {
+  font-size: 6rem;
+}
+
+.norwester {
+  font-family: "Norwester", sans-serif;
+  font-weight: 400;
+}
+
+.subheading {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.btn {
+  font-size: 1.4rem;
+  padding: 15px 25px;
+  border-radius: 50px;
+  color: #ffffff;
+  background-color: #38618c;
+  border: none;
+  text-align: center;
+  cursor: pointer;
+  width: 250px;
+}
+
+.sr-only {
+  display: none !important;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.align-start {
+  align-items: flex-start;
+}
+
+.align-end {
+  align-items: flex-end;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+/* Header */
+header {
+  background-color: #333333;
+  width: 100%;
+  height: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 99;
+  transition: all 0.4s ease;
+}
+header.hide {
+  transform: translateY(-100%);
+}
+
+.header-container {
+  width: calc(100% - 100px);
+}
+
+.logo-container {
+  gap: 10px;
+}
+
+.logo-text {
+  font-size: 2rem;
+}
+
+.logo-img-container {
+  width: 100px;
+  height: 100px;
+}
+
+.nav-bar {
+  position: relative;
+}
+.nav-bar .nav-links-container {
+  gap: 30px;
+}
+.nav-bar .nav-link-item {
+  list-style: none;
+}
+.nav-bar .nav-link {
+  cursor: pointer;
+  position: relative;
+}
+.nav-bar .nav-link::after {
+  position: absolute;
+  content: "";
+  width: 0;
+  height: 3px;
+  background-color: #ffffff;
+  bottom: -3px;
+  left: 0;
+  transition: all 0.3s ease;
+}
+.nav-bar .nav-link:hover::after {
+  width: 100%;
+}
+.nav-bar .products-nav-wrapper {
+  left: 50%;
+  transform: translateX(-50%);
+  top: calc(100% + 20px);
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 300px;
+}
+.nav-bar .products-nav-container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateY(-100%);
+  height: 100%;
+  transition: all 0.5s ease;
+  border-radius: 3px;
+  overflow: hidden;
+}
+.nav-bar .products-nav-container.active {
+  transform: translateY(0);
+}
+.nav-bar .products-nav-container .nav-link {
+  height: 100px;
+  width: 100%;
+  padding: 20px;
+  background-color: #202020;
+}
+.nav-bar .products-nav-container .nav-link:nth-of-type(2) {
+  background-color: #38618c;
+}
+.nav-bar .products-nav-container .nav-link::after {
+  height: 100%;
+  bottom: 0;
+}
+.nav-bar .products-nav-container .nav-link:hover::after {
+  width: 5px;
+}
+
+.intro-section {
+  height: 100vh;
+  background-color: #333333;
+}
+.intro-section .section-container {
+  height: 100%;
+  gap: 100px;
+  text-align: center;
+}
+.intro-section .section-container .white-text {
+  width: 900px;
+}
+
+.project-section {
+  height: 100vh;
+  background-color: #333333;
+}
+.project-section .section-container {
+  position: relative;
+  height: 100%;
+  width: 1600px;
+}
+.project-section .img-container {
+  position: absolute;
+  left: 0;
+  width: 1000px;
+  height: 500px;
+  border-radius: 15px;
+}
+.project-section .text-container {
+  position: absolute;
+  right: 0;
+  text-align: right;
+  width: 500px;
+  gap: 10px;
+}
+.project-section .text-container .white-text .line {
+  width: 100%;
+}
+.project-section .text-container .white-text:nth-child(2) {
+  line-height: 6rem;
+}
+.project-section .text-container .btns-container {
+  gap: 20px;
+  margin-top: 50px;
+}
+.project-section .text-container .btns-container .btn {
+  background-color: transparent;
+  border-radius: 5px;
+  border: 3px solid #ffffff;
+}
+.project-section .text-container .btns-container .btn .fa-icon {
+  margin-left: 10px;
+  font-size: 2rem;
+}
+.project-section:nth-of-type(even) .img-container {
+  left: auto;
+  right: 0;
+}
+.project-section:nth-of-type(even) .text-container {
+  right: auto;
+  left: 0;
+  text-align: left;
+}
+
+.projects-menu-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #f5f5f5;
+  overflow: hidden;
+}
+.projects-menu-container .projects-menu-wrapper {
+  position: absolute;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  transition: all 0.4s ease;
+}
+.projects-menu-container .projects-menu-wrapper.square {
+  width: 100vh;
+}
+.projects-menu-container .projects-menu-wrapper.square .projects-menu-item {
+  translate: 50vh 50vh;
+}
+.projects-menu-container .projects-menu-wrapper.circle {
+  border-radius: 50%;
+  height: 150px;
+  width: 150px;
+}
+.projects-menu-container .projects-menu-wrapper.circle .projects-menu-item {
+  translate: 50px 50px;
+}
+.projects-menu-container .projects-menu-item {
+  position: absolute;
+  left: -50vw;
+  top: -50vh;
+  translate: 50vw 50vh;
+  width: 100vw;
+  height: 100vh;
+  transition: all 0.4s ease;
+}
+.projects-menu-container .project-section {
+  position: absolute;
+  transform: translateY(100%);
+}
+.projects-menu-container .projects-menu-list {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  width: 500px;
+  height: 500px;
+  z-index: 3;
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+.projects-menu-container .projects-menu-list .inner-logo-container {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  overflow: visible;
+  z-index: 5;
+  opacity: 0;
+  transition: all 0.4s ease;
+  background-color: #333333;
+}
+.projects-menu-container .projects-menu-list .inner-logo-container.show {
+  opacity: 1;
+}
+.projects-menu-container .projects-menu-list .projects-logo-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+}
+.projects-menu-container .projects-menu-list .projects-logo-container.rotate {
+  transition: rotate 90s ease;
+  rotate: 360deg;
+}
+.projects-menu-container .projects-menu-list .projects-logo-container .plogo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: pink;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+.projects-menu-container .projects-menu-list .projects-logo-container .plogo.logo-0 {
+  transition: all 0.8s ease;
+}
+.projects-menu-container .projects-menu-list .projects-logo-container .plogo.logo-1 {
+  transition: all 1.6s ease;
+}
+.projects-menu-container .projects-menu-list .projects-logo-container .plogo.logo-2 {
+  transition: all 2.4s ease;
+}
+.projects-menu-container .projects-menu-list .projects-logo-container .plogo.logo-3 {
+  transition: all 3.2s ease;
+}
+.projects-menu-container .projects-menu-list .projects-logo-container .plogo.logo-4 {
+  transition: all 4s ease;
+}
+.projects-menu-container .projects-menu-list .projects-logo-container .plogo.logo-5 {
+  transition: all 4.8s ease;
+}
+.projects-menu-container .projects-menu-list .projects-logo-container .plogo.logo-6 {
+  transition: all 5.6s ease;
+}
+.projects-menu-container .projects-menu-list .projects-logo-container .plogo.logo-7 {
+  transition: all 6.4s ease;
+}
+.projects-menu-container .projects-menu-list .projects-logo-container .plogo.logo-8 {
+  transition: all 7.2s ease;
+}
+.projects-menu-container .projects-menu-list .projects-logo-container .plogo.logo-9 {
+  transition: all 8s ease;
+}
+.projects-menu-container .projects-menu-list .projects-logo-container .plogo.logo-10 {
+  transition: all 8.8s ease;
+}
+
+/*# sourceMappingURL=webdev.css.map */

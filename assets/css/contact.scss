@@ -1,0 +1,84 @@
+@import 'base';
+@import 'variables';
+
+.contact-section {
+    height: 100vh;
+    background-color: $gray-dark-1;
+
+    .info-container {
+        width: 500px;
+        gap: 60px;
+    }
+
+    .contact-form-container {
+        width: 600px;
+    }
+
+    .contact-form {
+        width: 100%;
+        gap: 80px;
+    }
+
+    .input-group {
+        width: 100%;
+        gap: 10px;
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            width: 100%;
+            height: 3px;
+            background-color: $white;
+            left: 0;
+        }
+
+        .form-input {
+            width: 100%;
+            background-color: transparent;
+            border: none;
+            font-size: $font-size;
+            color: $white;
+
+            &:focus {
+                outline: none;
+                border: none;
+            }
+        }
+    }
+
+    .form-group {
+        width: 100%;
+
+        .input-group {
+            width: calc(50% - 20px);
+        }
+    }
+
+    .send-btn {
+        align-self: flex-start;
+        width: 50%;
+    }
+
+    .notification-container {
+        position: absolute;
+        top: 110px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 300px;
+        padding: 30px;
+        background-color: $blue-1;
+        border-radius: 15px;
+
+        .notification-text {
+            max-width: 200px;
+            text-wrap: wrap;
+        }
+
+        .notification-close {
+            cursor: pointer;
+        }
+    }
+}
+

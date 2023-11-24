@@ -1,0 +1,245 @@
+/* Import google fonts */
+@import url('https://fonts.cdnfonts.com/css/norwester');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+@import 'variables';
+
+/* Project wide */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $gray-dark-1;
+    min-height: 100vh;
+    position: relative;
+    font-family: "Montserrat", sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+.box-shadow {
+    box-shadow: 5px 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+.container-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-col {
+    @extend .container-row;
+    flex-direction: column;
+}
+
+.section {
+    width: 100%;
+    @extend .container-col;
+    background: $gray-light-1;
+    padding: 100px 0;
+}
+
+.section-container {
+    width: 1400px;
+}
+
+.img-container {
+    @extend .container-row;
+    overflow: hidden;
+    position: relative;
+}
+
+.img-100a {
+    width: 100%;
+    height: auto;
+}
+
+.dark-text {
+    color: $gray-dark-1;
+    font-size: $font-size;
+}
+
+.white-text {
+    color: $white;
+    font-size: $font-size;
+}
+
+.heading {
+    font-size: $heading-size;
+    font-weight: 600;
+}
+
+.big-heading {
+    font-size: 6rem;
+}
+
+.norwester {
+    font-family: "Norwester", sans-serif;
+    font-weight: 400;
+}
+
+.subheading {
+    font-size: $subheading-size;
+    font-weight: 600;
+}
+
+.center-text {
+    text-align: center;
+}
+
+.btn {
+    @extend .container-row;
+    font-size: $font-size;
+    padding: 15px 25px;
+    border-radius: 50px;
+    color: $white;
+    background-color: $blue-1;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    width: 250px;
+}
+
+.sr-only {
+    display: none !important;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.align-start {
+    align-items: flex-start;
+}
+
+.align-end {
+    align-items: flex-end;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+.justify-end {
+    justify-content: flex-end;
+}
+
+/* Header */
+
+header {
+    background-color: $gray-dark-1;
+    width: 100%;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    transition: all 0.4s ease;
+
+    &.hide {
+        transform: translateY(-100%);
+    }
+}
+
+.header-container {
+    width: calc(100% - 100px);
+}
+
+.logo-container {
+    gap: 10px;
+}
+
+.logo-text {
+    font-size: 2rem;
+}
+
+.logo-img-container {
+    width: 100px;
+    height: 100px;
+}
+
+.nav-bar {
+
+    position: relative;
+
+    .nav-links-container {
+        gap: 30px;
+    }
+    
+    .nav-link-item {
+        list-style: none;
+    }
+
+    .nav-link {
+        cursor: pointer;
+        position: relative;
+
+        &::after {
+            position: absolute;
+            content: "";
+            width: 0;
+            height: 3px;
+            background-color: $white;
+            bottom: -3px;
+            left: 0;
+            transition: all 0.3s ease;
+        }
+
+        &:hover::after {
+            width: 100%;
+        }
+    }
+
+    .products-nav-wrapper {
+        left: 50%;
+        transform: translateX(-50%);
+        top: calc(100% + 20px);
+        position: absolute;
+        overflow: hidden;
+        width: 100%;
+        height: 300px;
+    }
+    
+    .products-nav-container {
+        position: absolute;
+        left: 0;
+        top: 0;
+        transform: translateY(-100%);
+        height: 100%;
+        transition: all 0.5s ease;
+        border-radius: 3px;
+        overflow: hidden;
+    
+        &.active {
+            transform: translateY(0);
+        }
+
+        .nav-link {
+            height: 100px;
+            width: 100%;
+            padding: 20px;
+            background-color: $gray-dark-4;
+
+            &:nth-of-type(2) {
+                background-color: $blue-1;
+            }
+
+            &::after {
+                height: 100%;
+                bottom: 0;
+            }
+
+            &:hover::after {
+                width: 5px;
+            }
+        }
+    }
+}
+
+

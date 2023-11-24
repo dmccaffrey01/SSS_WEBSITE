@@ -1,3 +1,20 @@
+/* Home Intro */
+
+const introSvgContainer = document.querySelector(".svg-logo-container");
+const introContainer = document.querySelector(".home-intro-container");
+
+document.addEventListener("DOMContentLoaded", () => {
+    introSvgContainer.classList.add("show");
+
+    window.setTimeout(() => {
+        introContainer.classList.add("hide");
+
+        window.setTimeout(() => {
+            introContainer.style.display = "none";
+        }, 1550);
+    }, 3500);
+});
+
 /* Scroll Animations */
 
 let observerCounter = 0;
@@ -15,30 +32,4 @@ const observer = new IntersectionObserver((entries) => {
 document.addEventListener("DOMContentLoaded", () => {
     const hiddenElements = document.querySelectorAll(".hidden");
     hiddenElements.forEach((el) => observer.observe(el));
-});
-
-
-
-
-const testimonialSwipeLeft = document.querySelector(".testimonial-swipe-left");
-const testimonialSwipeRight = document.querySelector(".testimonial-swipe-right");
-const testimonialCards = document.querySelectorAll(".testimonial-card-container");
-
-const getCardData = () => {
-    let cardData = {};
-    testimonialCards.forEach((card) => {
-        if (card.classList.contains('center')) {
-            cardData.center = testimonialCards.indexOf(card);
-        } else if (card.classList.contains('left')) {
-            cardData.center = testimonialCards.indexOf(card);
-        }
-    });
-}
-
-const swipeCardsRight = () => {
-    let cardData = getCardData();
-}
-
-testimonialSwipeRight.addEventListener("click", () => {
-    swipeCardsRight();
 });

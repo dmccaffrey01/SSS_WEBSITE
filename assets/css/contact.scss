@@ -67,17 +67,29 @@
         left: 50%;
         transform: translateX(-50%);
         width: 300px;
-        padding: 30px;
+        padding: 20px;
         background-color: $blue-1;
         border-radius: 15px;
+        transition: all 0.6s ease;
+        opacity: 0;
 
         .notification-text {
-            max-width: 200px;
+            max-width: 240px;
             text-wrap: wrap;
         }
 
         .notification-close {
             cursor: pointer;
+            width: 20px;
+
+            i {
+                font-size: 2rem;
+            }
+            
+        }
+
+        &.show {
+            opacity: 1;
         }
     }
 }

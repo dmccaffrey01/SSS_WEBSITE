@@ -1,8 +1,14 @@
-emailjs.init("C1R_MKyMngtyen65P");
+emailjs.init("zL866IgY-iWSHExyd");
 
 const form = document.querySelector('.contact-form');
 const notification = document.querySelector('.notification-container');
 const notificationText = document.querySelector('.notification-text');
+
+const notificationClose = document.querySelector('.notification-close');
+
+notificationClose.addEventListener('click', () => {
+    notification.classList.remove('show');
+});
 
 const sendEmailResponse = (success) => {
 
@@ -15,23 +21,25 @@ const sendEmailResponse = (success) => {
         message.value = "";
 
         notificationText.innerText = "Email sent successfully!";
-        notification.style.display = "flex";
+        notification.classList.add("show");
     } else {
         notificationText.innerText = "Email failed to send, Try again or contact info@socialstrivestudio.com";
-        notification.style.display = "flex";
+        notification.classList.add("show");
     }
+
+    window.setTimeout(() => {
+        notification.classList.remove("show");
+    }, 3500);
 }
 
 const sendEmail = (emailParams) => {
     // Send the email using the template and service you've created
-    emailjs.send("service_tpbjt5l", "template_ds4svuk", emailParams)
+    emailjs.send("default_service", "template_k2nosxe", emailParams)
     .then(function(response) {
         sendEmailResponse(true);
-        console.log("Email sent successfully", response);
     })
     .catch(function(error) {
         sendEmailResponse(false);
-        console.error("Email sending failed", error);
     });
 }
 
@@ -43,10 +51,9 @@ form.addEventListener('submit', (e) => {
     let message = form.querySelector("#message").value;
 
     const emailParams = {
-        from_email: email,
-        from_name: name,
+        email: email,
+        name: name,
         message: message,
-        reply_to: email,
     };
 
     sendEmail(emailParams);

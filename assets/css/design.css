@@ -239,21 +239,23 @@ header.hide {
 .project-section .section-container {
   position: relative;
   height: 100%;
-  width: 1600px;
+  gap: 50px;
 }
 .project-section .img-container {
-  position: absolute;
-  left: 0;
-  width: 1000px;
-  height: 500px;
-  border-radius: 15px;
+  width: 600px;
+  height: 600px;
 }
 .project-section .text-container {
-  position: absolute;
-  right: 0;
   text-align: right;
-  width: 500px;
-  gap: 10px;
+  width: 600px;
+  gap: 20px;
+}
+.project-section .text-container .white-text {
+  flex-wrap: wrap;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  text-transform: uppercase;
 }
 .project-section .text-container .white-text .line {
   width: 100%;
@@ -288,7 +290,7 @@ header.hide {
   position: relative;
   width: 100%;
   height: 100vh;
-  background: radial-gradient(circle, rgb(245, 245, 245) 20%, rgb(170, 170, 170) 48%);
+  background-color: #f5f5f5;
   overflow: hidden;
 }
 .projects-menu-container .projects-menu-wrapper {
@@ -299,7 +301,7 @@ header.hide {
   left: 50%;
   top: 50%;
   translate: -50% -50%;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
 }
 .projects-menu-container .projects-menu-wrapper.square {
   width: 100vh;
@@ -307,13 +309,17 @@ header.hide {
 .projects-menu-container .projects-menu-wrapper.square .projects-menu-item {
   translate: 50vh 50vh;
 }
-.projects-menu-container .projects-menu-wrapper.circle {
-  border-radius: 50%;
-  height: 120px;
-  width: 120px;
+.projects-menu-container .projects-menu-wrapper.flaten-y {
+  height: 0px;
 }
-.projects-menu-container .projects-menu-wrapper.circle .projects-menu-item {
-  translate: 50px 50px;
+.projects-menu-container .projects-menu-wrapper.flaten-y .projects-menu-item {
+  translate: 50vw 0px;
+}
+.projects-menu-container .projects-menu-wrapper.flaten-x {
+  width: 0px;
+}
+.projects-menu-container .projects-menu-wrapper.flaten-x .projects-menu-item {
+  translate: 0 50vh;
 }
 .projects-menu-container .projects-menu-item {
   position: absolute;
@@ -322,101 +328,10 @@ header.hide {
   translate: 50vw 50vh;
   width: 100vw;
   height: 100vh;
-  transition: all 0.3s ease;
+  transition: all 0.4s ease;
 }
 .projects-menu-container .projects-menu-item.hide {
   display: none;
 }
-.projects-menu-container .projects-menu-list {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  translate: -50% -50%;
-  width: 600px;
-  height: 600px;
-  z-index: 3;
-  transition: all 0.3s ease;
-  overflow: hidden;
-}
-.projects-menu-container .projects-menu-list .inner-logo-container {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  left: 50%;
-  top: 50%;
-  translate: -50% -50%;
-  overflow: visible;
-  z-index: 5;
-  opacity: 0;
-  transition: all 0.3s ease;
-  background-color: #333333;
-}
-.projects-menu-container .projects-menu-list .inner-logo-container.show {
-  opacity: 1;
-}
-.projects-menu-container .projects-menu-list .projects-logo-container {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  translate: -50% -50%;
-  width: 600px;
-  height: 600px;
-  border-radius: 50%;
-  opacity: 0;
-}
-.projects-menu-container .projects-menu-list .projects-logo-container.show {
-  opacity: 1;
-}
-.projects-menu-container .projects-menu-list .projects-logo-container.rotate {
-  transition: rotate 0.01s ease;
-}
-.projects-menu-container .projects-menu-list .projects-logo-container.rotate-stop {
-  transition: rotate 90s ease;
-}
-.projects-menu-container .projects-menu-list .projects-logo-container .plogo {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: #333333;
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  opacity: 0;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.projects-menu-container .project-menu-slider {
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 600px;
-  height: 100vh;
-  overflow: hidden;
-}
-.projects-menu-container .project-menu-slider .pslider {
-  width: 100%;
-  height: 100%;
-  border-radius: 50vh 0 0 50vh;
-  padding: 50px;
-  background-color: #333333;
-  text-align: end;
-  gap: 10px;
-  transition: all 0.3s ease;
-  position: absolute;
-  translate: 100% 0;
-}
-.projects-menu-container .project-menu-slider .pslider.slide {
-  translate: 0 0;
-}
-.projects-menu-container .project-menu-slider .pslider.border {
-  border-radius: 0;
-}
-.projects-menu-container .project-menu-slider .pslider .white-text .line {
-  width: 100%;
-}
-.projects-menu-container .project-menu-slider .pslider .white-text:nth-child(2) {
-  line-height: 6rem;
-}
 
-/*# sourceMappingURL=webdev.css.map */
+/*# sourceMappingURL=design.css.map */

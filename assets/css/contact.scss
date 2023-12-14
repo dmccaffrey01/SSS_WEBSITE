@@ -5,9 +5,22 @@
     height: 100vh;
     background-color: $gray-dark-1;
 
+    .section-container {
+        gap: 200px;
+    }
+
     .info-container {
         width: 500px;
-        gap: 60px;
+        height: 345px;
+
+        .btn {
+            margin-top: 40px;
+        }
+
+        .white-text {
+            margin: 10px 0;
+            text-wrap: balance;
+        }
     }
 
     .contact-form-container {

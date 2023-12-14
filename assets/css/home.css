@@ -68,8 +68,13 @@ a {
   font-weight: 600;
 }
 
+.big-heading {
+  font-size: 6rem;
+}
+
 .norwester {
   font-family: "Norwester", sans-serif;
+  font-weight: 400;
 }
 
 .subheading {
@@ -126,6 +131,10 @@ header {
   top: 0;
   left: 0;
   z-index: 99;
+  transition: all 0.4s ease;
+}
+header.hide {
+  transform: translateY(-100%);
 }
 
 .header-container {
@@ -210,6 +219,16 @@ header {
   width: 5px;
 }
 
+.slider-wrapper {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+.slider-wrapper .section {
+  position: relative;
+  transition: all 0.8s ease;
+}
+
 /* Home Hero */
 .home-hero-section {
   height: 100vh;
@@ -227,7 +246,7 @@ header {
   transition: all 1.5s ease;
 }
 .home-intro-container.hide {
-  translate: 0 -100%;
+  opacity: 0;
 }
 .home-intro-container .svg-logo-container {
   position: relative;
@@ -456,52 +475,27 @@ header {
     stroke-dashoffset: 3652.7497558594px;
   }
 }
-.lines-img-container {
-  position: absolute;
+.home-hero-section-container {
+  opacity: 1;
+  transition: all 1s ease;
+  position: relative;
+  height: 100%;
 }
-.lines-img-container.lines-1 {
-  bottom: 0;
-  left: 0;
-  width: 700px;
-  height: 700px;
-}
-.lines-img-container.lines-2 {
-  top: 100px;
-  right: 0;
-  width: 850px;
-  height: 850px;
-}
-.lines-img-container.lines-3 {
-  top: 0px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 900px;
-  height: 900px;
-  z-index: 100;
-}
-.lines-img-container.lines-4 {
-  bottom: 0;
-  left: 0;
+.home-hero-section-container .img-container {
   width: 600px;
   height: 600px;
-}
-.lines-img-container.lines-5 {
-  top: 0;
+  position: absolute;
+  top: 50%;
   right: 0;
-  width: 650px;
-  height: 650px;
-}
-
-.home-hero-section-container {
-  width: calc(100% - 400px);
+  translate: 0 -50%;
 }
 
 .home-hero-text-container {
   gap: 30px;
   position: absolute;
   top: 50%;
-  left: 160px;
-  transform: translateY(-50%);
+  left: 0;
+  translate: 0 -50%;
 }
 
 .home-hero-heading-container, .home-hero-subheading-container {
@@ -527,7 +521,32 @@ header {
 }
 
 .values-section-container {
-  margin-bottom: 150px;
+  margin-bottom: 50px;
+  margin-top: 150px;
+}
+.values-section-container .heading-container {
+  position: absolute;
+  top: 150px;
+  width: 100%;
+}
+.values-section-container .heading-container .heading {
+  width: 650px;
+  z-index: 2;
+  background-color: #333333;
+  text-align: center;
+}
+.values-section-container .heading-container .line {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  background-color: #ffffff;
+  top: 50%;
+  translate: 0 -50%;
+  z-index: 1;
+}
+.values-section-container .values-lists-container {
+  width: 100%;
+  gap: 100px;
 }
 
 .values-text-container {
@@ -567,6 +586,9 @@ header {
 .values-list-item .list-item-heading {
   font-size: 2rem;
 }
+.values-list-item .values-list-text {
+  text-wrap: balance;
+}
 
 .values-list-point-container {
   width: 50px;
@@ -603,7 +625,7 @@ header {
 .waves {
   position: relative;
   width: 100%;
-  height: 20vh;
+  height: 15vh;
   margin-bottom: -7px; /*Fix for safari gap*/
   min-height: 100px;
   max-height: 200px;
@@ -656,30 +678,32 @@ header {
 
 /* Home Categories */
 .home-categories-section {
-  background-color: #f5f5f5;
+  background-color: #333333;
   position: relative;
   height: 100vh;
   overflow: hidden;
 }
 .home-categories-section .section-container {
   gap: 50px;
+  margin-top: 150px;
+  margin-bottom: 50px;
 }
 .home-categories-section .heading-container {
   position: absolute;
-  top: 100px;
+  top: 150px;
   width: 100%;
 }
 .home-categories-section .heading-container .heading {
   width: 400px;
   z-index: 2;
-  background-color: #f5f5f5;
+  background-color: #333333;
   text-align: center;
 }
 .home-categories-section .heading-container .line {
   position: absolute;
   width: 100%;
   height: 5px;
-  background-color: #333333;
+  background-color: #ffffff;
   top: 50%;
   translate: 0 -50%;
   z-index: 1;
@@ -687,11 +711,12 @@ header {
 .home-categories-section .categories-container {
   width: 100%;
   cursor: pointer;
-  margin-top: 150px;
+  margin-top: 0px;
+  gap: 100px;
 }
 .home-categories-section .category-container {
   gap: 30px;
-  background-color: rgba(56, 97, 140, 0.7);
+  background: linear-gradient(128deg, rgb(51, 51, 51) 20%, rgb(65, 65, 65) 73%);
   padding: 50px 70px;
   width: 360px;
   border-radius: 15px;
@@ -709,7 +734,6 @@ header {
 .home-categories-section .icon-container {
   width: 200px;
   height: 200px;
-  background-color: #333333;
   border-radius: 50%;
 }
 .home-categories-section .category-btn {
@@ -721,6 +745,7 @@ header {
 .testimonial-section {
   height: 100vh;
   position: relative;
+  background-color: #333333;
 }
 
 .testimonial-section-container {
@@ -728,20 +753,20 @@ header {
 }
 .testimonial-section-container .heading-container {
   position: absolute;
-  top: 100px;
+  top: 150px;
   width: 100%;
 }
 .testimonial-section-container .heading-container .heading {
   width: 550px;
   z-index: 2;
-  background-color: #f5f5f5;
+  background-color: #333333;
   text-align: center;
 }
 .testimonial-section-container .heading-container .line {
   position: absolute;
   width: 100%;
   height: 5px;
-  background-color: #333333;
+  background-color: #ffffff;
   top: 50%;
   translate: 0 -50%;
   z-index: 1;
@@ -754,24 +779,138 @@ header {
   margin-top: 100px;
 }
 .testimonial-cards-container .card-container {
-  width: 400px;
-  height: 400px;
+  width: 800px;
+  height: 300px;
   padding: 50px;
   border-radius: 15px;
-  background-color: #333333;
+  background: linear-gradient(128deg, rgb(51, 51, 51) 20%, rgb(65, 65, 65) 73%);
+  position: relative;
 }
 .testimonial-cards-container .card-container .text-container {
   gap: 10px;
 }
-
-/* Contact CTA */
-.contact-cta-section {
-  background-color: #333333;
-  padding: 70px 0;
+.testimonial-cards-container .card-container .testimonial-name {
+  position: absolute;
+  left: 150px;
+  bottom: 50px;
+}
+.testimonial-cards-container .card-container .img-container {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  position: absolute;
+  left: 50px;
+  bottom: 20px;
 }
 
-.contact-cta-section-container {
-  gap: 30px;
+/* Contact CTA */
+.contact-section {
+  height: 100vh;
+  background-color: #333333;
+  position: relative;
+}
+.contact-section .heading-container {
+  position: absolute;
+  top: 150px;
+  width: 100%;
+}
+.contact-section .heading-container .heading {
+  width: 550px;
+  z-index: 2;
+  background-color: #333333;
+  text-align: center;
+}
+.contact-section .heading-container .line {
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  background-color: #ffffff;
+  top: 50%;
+  translate: 0 -50%;
+  z-index: 1;
+}
+.contact-section .section-container {
+  gap: 200px;
+  margin-top: 100px;
+}
+.contact-section .info-container {
+  width: 500px;
+  height: 345px;
+}
+.contact-section .info-container .btn {
+  margin-top: 40px;
+}
+.contact-section .info-container .white-text {
+  margin: 10px 0;
+  text-wrap: balance;
+  text-align: center;
+}
+.contact-section .contact-form-container {
+  width: 600px;
+}
+.contact-section .contact-form {
+  width: 100%;
+  gap: 80px;
+}
+.contact-section .input-group {
+  width: 100%;
+  gap: 10px;
+  position: relative;
+}
+.contact-section .input-group::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  width: 100%;
+  height: 3px;
+  background-color: #ffffff;
+  left: 0;
+}
+.contact-section .input-group .form-input {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  font-size: 1.4rem;
+  color: #ffffff;
+}
+.contact-section .input-group .form-input:focus {
+  outline: none;
+  border: none;
+}
+.contact-section .form-group {
+  width: 100%;
+}
+.contact-section .form-group .input-group {
+  width: calc(50% - 20px);
+}
+.contact-section .send-btn {
+  width: 50%;
+}
+.contact-section .notification-container {
+  position: absolute;
+  top: 110px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 300px;
+  padding: 20px;
+  background-color: #38618c;
+  border-radius: 15px;
+  transition: all 0.6s ease;
+  opacity: 0;
+}
+.contact-section .notification-container .notification-text {
+  max-width: 240px;
+  text-wrap: wrap;
+}
+.contact-section .notification-container .notification-close {
+  cursor: pointer;
+  width: 20px;
+}
+.contact-section .notification-container .notification-close i {
+  font-size: 2rem;
+}
+.contact-section .notification-container.show {
+  opacity: 1;
 }
 
 /*# sourceMappingURL=home.css.map */

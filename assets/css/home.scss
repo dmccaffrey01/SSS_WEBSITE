@@ -1,6 +1,17 @@
 @import 'base';
 @import 'variables';
 
+.slider-wrapper {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+
+    .section {
+        position: relative;
+        transition: all 0.8s ease;
+    }
+}
+
 /* Home Hero */
 
 .home-hero-section {
@@ -19,7 +30,7 @@
     transition: all 1.5s ease;
 
     &.hide {
-        translate: 0 -100%;
+        opacity: 0;
     }
 
     .svg-logo-container {
@@ -157,57 +168,28 @@
     }
 }
 
-.lines-img-container {
-    position: absolute;
+.home-hero-section-container {
+    opacity: 1;
+    transition: all 1s ease;
+    position: relative;
+    height: 100%;
 
-    &.lines-1 {
-        bottom: 0;
-        left: 0;
-        width: 700px;
-        height: 700px;
-    }
-
-    &.lines-2 {
-        top: 100px;
-        right: 0;
-        width: 850px;
-        height: 850px;
-    }
-
-    &.lines-3 {
-        top: 0px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 900px;
-        height: 900px;
-        z-index: 100;
-    }
-
-    &.lines-4 {
-        bottom: 0;
-        left: 0;
+    .img-container {
         width: 600px;
         height: 600px;
-    }
-
-    &.lines-5 {
-        top: 0;
+        position: absolute;
+        top: 50%;
         right: 0;
-        width: 650px;
-        height: 650px;
+        translate: 0 -50%;
     }
-}
-
-.home-hero-section-container {
-    width: calc(100% - 400px);
 }
 
 .home-hero-text-container {
     gap: 30px;
     position: absolute;
     top: 50%;
-    left: 160px;
-    transform: translateY(-50%);
+    left: 0;
+    translate: 0 -50%;
 }
 
 .home-hero-heading-container, .home-hero-subheading-container {
@@ -234,7 +216,36 @@
 }
 
 .values-section-container {
-    margin-bottom: 150px;
+    margin-bottom: 50px;
+    margin-top: 150px;
+
+    .heading-container {
+        position: absolute;
+        top: 150px;
+        width: 100%;
+
+        .heading {
+            width: 650px;
+            z-index: 2;
+            background-color: $gray-dark-1;
+            text-align: center;
+        }
+
+        .line {
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            background-color: $white;
+            top: 50%;
+            translate: 0 -50%;
+            z-index: 1;
+        }
+    }
+
+    .values-lists-container {
+        width: 100%;
+        gap: 100px;
+    }
 }
 
 .values-text-container {
@@ -274,6 +285,10 @@
 
     .list-item-heading {
         font-size: $subheading-size;
+    }
+
+    .values-list-text {
+        text-wrap: balance;
     }
 }
 
@@ -317,7 +332,7 @@
 .waves {
     position:relative;
     width: 100%;
-    height:20vh;
+    height:15vh;
     margin-bottom:-7px; /*Fix for safari gap*/
     min-height:100px;
     max-height:200px;
@@ -369,24 +384,26 @@ animation-duration: 16s;
 /* Home Categories */
 
 .home-categories-section {
-    background-color: $gray-light-1;
+    background-color: $gray-dark-1;
     position: relative;
     height: 100vh;
     overflow: hidden;
 
     .section-container {
         gap: 50px;
+        margin-top: 150px;
+        margin-bottom: 50px;
     }
 
     .heading-container {
         position: absolute;
-        top: 100px;
+        top: 150px;
         width: 100%;
 
         .heading {
             width: 400px;
             z-index: 2;
-            background-color: $gray-light-1;
+            background-color: $gray-dark-1;
             text-align: center;
         }
 
@@ -394,7 +411,7 @@ animation-duration: 16s;
             position: absolute;
             width: 100%;
             height: 5px;
-            background-color: $gray-dark-1;
+            background-color: $white;
             top: 50%;
             translate: 0 -50%;
             z-index: 1;
@@ -404,12 +421,13 @@ animation-duration: 16s;
     .categories-container {
         width: 100%;
         cursor: pointer;
-        margin-top: 150px;
+        margin-top: 0px;
+        gap: 100px;
     }
 
     .category-container {
         gap: 30px;
-        background-color: $blue-2;
+        background: linear-gradient(128deg, rgba(51,51,51,1) 20%, rgb(65, 65, 65) 73%);
         padding: 50px 70px;
         width: 360px;
         border-radius: 15px;
@@ -433,7 +451,6 @@ animation-duration: 16s;
     .icon-container {
         width: 200px;
         height: 200px;
-        background-color: $gray-dark-1;
         border-radius: 50%;
     }
 
@@ -450,6 +467,7 @@ animation-duration: 16s;
 .testimonial-section {
     height: 100vh;
     position: relative;
+    background-color: $gray-dark-1;
 }
 
 .testimonial-section-container {
@@ -458,13 +476,13 @@ animation-duration: 16s;
 
     .heading-container {
         position: absolute;
-        top: 100px;
+        top: 150px;
         width: 100%;
 
         .heading {
             width: 550px;
             z-index: 2;
-            background-color: $gray-light-1;
+            background-color: $gray-dark-1;
             text-align: center;
         }
 
@@ -472,7 +490,7 @@ animation-duration: 16s;
             position: absolute;
             width: 100%;
             height: 5px;
-            background-color: $gray-dark-1;
+            background-color: $white;
             top: 50%;
             translate: 0 -50%;
             z-index: 1;
@@ -487,14 +505,30 @@ animation-duration: 16s;
     margin-top: 100px;
 
     .card-container {
-        width: 400px;
-        height: 400px;
+        width: 800px;
+        height: 300px;
         padding: 50px;
         border-radius: 15px;
-        background-color: $gray-dark-1;
+        background: linear-gradient(128deg, rgba(51,51,51,1) 20%, rgb(65, 65, 65) 73%);
+        position: relative;
 
         .text-container {
             gap: 10px;
+        }
+
+        .testimonial-name {
+            position: absolute;
+            left: 150px;
+            bottom: 50px;
+        }
+
+        .img-container {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            position: absolute;
+            left: 50px;
+            bottom: 20px;
         }
     }
 }
@@ -504,11 +538,133 @@ animation-duration: 16s;
 
 /* Contact CTA */
 
-.contact-cta-section {
+.contact-section {
+    height: 100vh;
     background-color: $gray-dark-1;
-    padding: 70px 0;
-}
+    position: relative;
 
-.contact-cta-section-container {
-    gap: 30px;
+    .heading-container {
+        position: absolute;
+        top: 150px;
+        width: 100%;
+
+        .heading {
+            width: 550px;
+            z-index: 2;
+            background-color: $gray-dark-1;
+            text-align: center;
+        }
+
+        .line {
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            background-color: $white;
+            top: 50%;
+            translate: 0 -50%;
+            z-index: 1;
+        }
+    }
+
+    .section-container {
+        gap: 200px;
+        margin-top: 100px;
+    }
+
+    .info-container {
+        width: 500px;
+        height: 345px;
+
+        .btn {
+            margin-top: 40px;
+        }
+
+        .white-text {
+            margin: 10px 0;
+            text-wrap: balance;
+            text-align: center;
+        }
+    }
+
+    .contact-form-container {
+        width: 600px;
+    }
+
+    .contact-form {
+        width: 100%;
+        gap: 80px;
+    }
+
+    .input-group {
+        width: 100%;
+        gap: 10px;
+        position: relative;
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: -5px;
+            width: 100%;
+            height: 3px;
+            background-color: $white;
+            left: 0;
+        }
+
+        .form-input {
+            width: 100%;
+            background-color: transparent;
+            border: none;
+            font-size: $font-size;
+            color: $white;
+
+            &:focus {
+                outline: none;
+                border: none;
+            }
+        }
+    }
+
+    .form-group {
+        width: 100%;
+
+        .input-group {
+            width: calc(50% - 20px);
+        }
+    }
+
+    .send-btn {
+        width: 50%;
+    }
+
+    .notification-container {
+        position: absolute;
+        top: 110px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 300px;
+        padding: 20px;
+        background-color: $blue-1;
+        border-radius: 15px;
+        transition: all 0.6s ease;
+        opacity: 0;
+
+        .notification-text {
+            max-width: 240px;
+            text-wrap: wrap;
+        }
+
+        .notification-close {
+            cursor: pointer;
+            width: 20px;
+
+            i {
+                font-size: 2rem;
+            }
+            
+        }
+
+        &.show {
+            opacity: 1;
+        }
+    }
 }

@@ -223,9 +223,19 @@ header.hide {
   height: 100vh;
   background-color: #333333;
 }
+.contact-section .section-container {
+  gap: 200px;
+}
 .contact-section .info-container {
   width: 500px;
-  gap: 60px;
+  height: 345px;
+}
+.contact-section .info-container .btn {
+  margin-top: 40px;
+}
+.contact-section .info-container .white-text {
+  margin: 10px 0;
+  text-wrap: balance;
 }
 .contact-section .contact-form-container {
   width: 600px;

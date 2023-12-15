@@ -522,11 +522,11 @@ header.hide {
 
 .values-section-container {
   margin-bottom: 50px;
-  margin-top: 150px;
+  margin-top: 50px;
 }
 .values-section-container .heading-container {
   position: absolute;
-  top: 150px;
+  top: 50px;
   width: 100%;
 }
 .values-section-container .heading-container .heading {
@@ -685,12 +685,11 @@ header.hide {
 }
 .home-categories-section .section-container {
   gap: 50px;
-  margin-top: 150px;
-  margin-bottom: 50px;
+  margin-top: 100px;
 }
 .home-categories-section .heading-container {
   position: absolute;
-  top: 150px;
+  top: 50px;
   width: 100%;
 }
 .home-categories-section .heading-container .heading {
@@ -753,7 +752,7 @@ header.hide {
 }
 .testimonial-section-container .heading-container {
   position: absolute;
-  top: 150px;
+  top: 50px;
   width: 100%;
 }
 .testimonial-section-container .heading-container .heading {
@@ -779,7 +778,7 @@ header.hide {
   width: 100%;
   min-height: 350px;
   position: relative;
-  margin-top: 150px;
+  margin-top: 50px;
 }
 .testimonial-cards-container .card-container {
   width: 800px;
@@ -814,7 +813,7 @@ header.hide {
 }
 .contact-section .heading-container {
   position: absolute;
-  top: 150px;
+  top: 50px;
   width: 100%;
 }
 .contact-section .heading-container .heading {
@@ -834,7 +833,7 @@ header.hide {
 }
 .contact-section .section-container {
   gap: 200px;
-  margin-top: 100px;
+  margin-top: 50px;
 }
 .contact-section .info-container {
   width: 500px;

@@ -2,6 +2,7 @@
 
 const introSvgContainer = document.querySelector(".svg-logo-container");
 const introContainer = document.querySelector(".home-intro-container");
+const header = document.querySelector("header");
 let animationRunning = true;
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -61,6 +62,12 @@ const changeCurrentSliderIndex = (posOrNeg) => {
             el.classList.remove("current");
         }
     });
+
+    if (currentIndex == 1 && posOrNeg == -1) {
+        header.style.display = "flex";
+    } else {
+        header.style.display = "none";
+    }
 
     sliderElements[currentIndex + posOrNeg].classList.add("current");
 }

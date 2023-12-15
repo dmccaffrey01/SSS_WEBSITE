@@ -299,6 +299,7 @@ header.hide {
 }
 .project-section .text-container .white-text .line {
   width: 100%;
+  text-align: right;
 }
 .project-section .text-container .white-text:nth-child(2) {
   line-height: 6rem;

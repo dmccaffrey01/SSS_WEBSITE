@@ -20,6 +20,10 @@
         left: 0;
         opacity: 1;
         transition: all 1s ease;
+        
+        .white-text {
+            text-wrap: balance;
+        }
 
         &.hide {
             transform: translate(0, 100vh);
@@ -44,6 +48,12 @@
 
         .fa-icon {
             margin-right: 10px;
+        }
+
+        .btn {
+            background-color: transparent;
+            border-radius: 5px;
+            border: 3px solid $white;
         }
     }
 

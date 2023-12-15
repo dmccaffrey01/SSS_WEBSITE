@@ -295,10 +295,12 @@ header.hide {
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
+  text-align: right;
   text-transform: uppercase;
 }
 .project-section .text-container .white-text .line {
   width: 100%;
+  text-align: right;
 }
 .project-section .text-container .white-text:nth-child(2) {
   line-height: 6rem;
@@ -323,7 +325,7 @@ header.hide {
   width: 350px;
   padding: 50px 30px;
   height: 250px;
-  background-color: #38618c;
+  background: linear-gradient(128deg, rgb(51, 51, 51) 20%, rgb(65, 65, 65) 73%);
   border-radius: 15px;
   gap: 30px;
   text-align: center;

@@ -1,6 +1,29 @@
 @import 'base';
 @import 'variables';
 
+
+.slider-wrapper {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+
+    .section {
+        position: absolute;
+        transition: all 0.8s ease;
+    }
+
+    $translate-increment: 100%; // Adjust this value based on your needs
+
+    .section {
+        @for $i from 1 through 10 {
+            &:nth-child(#{$i}) {
+                left: (($i - 1) * $translate-increment);
+            }
+        }
+    }
+}
+
+
 .intro-section {
     height: 100vh;
     background-color: $gray-dark-1;

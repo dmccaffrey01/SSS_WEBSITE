@@ -219,6 +219,46 @@ header.hide {
   width: 5px;
 }
 
+.slider-wrapper {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+.slider-wrapper .section {
+  position: absolute;
+  transition: all 0.8s ease;
+}
+.slider-wrapper .section:nth-child(1) {
+  left: 0%;
+}
+.slider-wrapper .section:nth-child(2) {
+  left: 100%;
+}
+.slider-wrapper .section:nth-child(3) {
+  left: 200%;
+}
+.slider-wrapper .section:nth-child(4) {
+  left: 300%;
+}
+.slider-wrapper .section:nth-child(5) {
+  left: 400%;
+}
+.slider-wrapper .section:nth-child(6) {
+  left: 500%;
+}
+.slider-wrapper .section:nth-child(7) {
+  left: 600%;
+}
+.slider-wrapper .section:nth-child(8) {
+  left: 700%;
+}
+.slider-wrapper .section:nth-child(9) {
+  left: 800%;
+}
+.slider-wrapper .section:nth-child(10) {
+  left: 900%;
+}
+
 .intro-section {
   height: 100vh;
   background-color: #333333;

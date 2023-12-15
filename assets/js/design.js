@@ -1,108 +1,64 @@
-const pMenuWrapper = document.querySelector(".projects-menu-wrapper");
-const headerEl = document.querySelector("header");
-const pMenuLogo = document.querySelector(".inner-logo-container");
-
 let animationRunning = false;
+/* Slider */
 
-let xOrY = "x";
+const sliderElements = document.querySelectorAll(".section");
 
-const openProjectMenu = () => {
-
-    animationRunning = true;
-
-    //pMenuWrapper.classList.add("square");
-    headerEl.classList.add("hide");
-    window.setTimeout(() => {
-        pMenuWrapper.classList.add(`flaten-${xOrY}`);
-    }, 300);
-}
-
-const closeProjectMenu = () => {
-    window.setTimeout(() => {
-        pMenuWrapper.classList.remove(`flaten-${xOrY}`);
-
-        window.setTimeout(() => {
-            //pMenuWrapper.classList.remove("square");
-            headerEl.classList.remove("hide");
-            animationRunning = false;
-        }, 300);
-    }, 300);
-}
-
-const pMenuItems = document.querySelectorAll(".projects-menu-item");
-
-const getCurrentItemIndex = () => {
+const getCurrentSliderIndex = () => {
     let currentIndex;
 
-    pMenuItems.forEach((item, i) => {
-        
-        
-        if (!item.classList.contains("hide")) {
+    sliderElements.forEach((el, i) => {
+        if (el.classList.contains("current")) {
             currentIndex = i;
         }
-
     });
 
     return currentIndex;
 }
 
-const getNextItemIndex = (nextOrPrev) => {
-    let currentIndex = getCurrentItemIndex();
+const changeCurrentSliderIndex = (posOrNeg) => {
+    let currentIndex;
 
-    let nextIndex;
-
-    let itemsTotal = pMenuItems.length - 1;
-
-    if (currentIndex == 0 && nextOrPrev == -1) {
-        nextIndex = itemsTotal;
-    } else if (currentIndex == itemsTotal && nextOrPrev == 1) {
-        nextIndex = 0;
-    } else {
-        nextIndex = currentIndex + nextOrPrev;
-    }
-
-    return nextIndex;
-}
-
-const openNextProject = (posOrNeg) => {
-    let nextIndex = getNextItemIndex(posOrNeg);
-
-    pMenuItems.forEach((item, i) => {
-        if (i == nextIndex) {
-            if (item.classList.contains("hide")) {
-                item.classList.remove("hide");
-            }
-        } else {
-            if (!item.classList.contains("hide")) {
-                item.classList.add("hide");
-            }
+    sliderElements.forEach((el, i) => {
+        if (el.classList.contains("current")) {
+            currentIndex = i;
+            el.classList.remove("current");
         }
     });
+
+    sliderElements[currentIndex + posOrNeg].classList.add("current");
 }
 
+const slideSections = (posOrNeg) => {
+    let currentIndex = getCurrentSliderIndex();
+
+    if (currentIndex == 0 && posOrNeg == -1) {
+        return;
+    } else if (currentIndex == sliderElements.length - 1 && posOrNeg == 1) {
+        return;
+    } else {
+        let multiple = currentIndex + posOrNeg;
+
+        sliderElements.forEach((el, i) => {
+            el.style.translate = `${-multiple * 100}% 0`;
+        });
+
+        changeCurrentSliderIndex(posOrNeg);
+    }
+}
 
 window.addEventListener("wheel", (e) => {
     if (animationRunning) {
         return;
     } else {
-        openProjectMenu();
+        if (e.deltaY > 0) {
+            slideSections(1);
+        } else {
+            slideSections(-1);
+        }
+        animationRunning = true;
 
         window.setTimeout(() => {
-            if (e.deltaY > 0) {
-                openNextProject(1);
-            } else {
-                openNextProject(-1);
-            }
-        
-            window.setTimeout(() => {
-                closeProjectMenu();
-            }, 50)
-        }, 600)
-
-        if (xOrY == "x") {
-            xOrY = "y";
-        } else {
-            xOrY = "x";
-        }
+            animationRunning = false;
+        }, 800);
     }
 });

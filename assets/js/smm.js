@@ -29,6 +29,10 @@ const changeCurrentSliderIndex = (posOrNeg) => {
 }
 
 const slideSections = (posOrNeg) => {
+    if (animationRunning) {
+        return;
+    }
+    
     let currentIndex = getCurrentSliderIndex();
 
     if (currentIndex == 0 && posOrNeg == -1) {
